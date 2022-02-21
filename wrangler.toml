@@ -1,0 +1,22 @@
+name = "dur-obj-shopping-cart"
+# type = "javascript" is required to use the `[build]` section
+type = "javascript"
+workers_dev = true
+account_id = "19c4bc592477d8e5dc50cd682df15728"
+route = ""
+zone_id = "221385f65d15b16d134b8f16d51405c5"
+compatibility_date = "2022-01-19"
+
+[build.upload]
+# Upload the code directly from the src directory.
+dir = "src"
+# The "modules" upload format is required for all projects that export a Durable Objects class
+format = "modules"
+main = "./index.mjs"
+
+[durable_objects]
+bindings = [{name = "CART", class_name = "Cart"}]
+
+[[migrations]]
+tag = "v1" # Should be unique for each entry
+new_classes = ["Cart"]
