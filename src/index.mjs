@@ -11,7 +11,6 @@ async function handleRequest(request, env) {
 
   // refer to object ID passed through query string
   const objId = url.searchParams.get("objectId");
-  const item = url.searchParams.get("item");
 
   let id = env.CART.idFromName(objId);
   let obj = env.CART.get(id);
@@ -36,7 +35,6 @@ export class Cart {
     this.state.blockConcurrencyWhile(async () => {
       let stored = await this.state.storage.get("cart");
       this.cart = stored || {};
-      // let stored = await this.state.storage.get("")
     });
   }
 
