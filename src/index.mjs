@@ -1,5 +1,7 @@
 // Worker
 
+const frontendUrl = 'https://do-cart-frontend.pages.dev'
+
 export default {
   async fetch(request, env) {
     return await handleRequest(request, env);
@@ -19,7 +21,7 @@ async function handleRequest(request, env) {
 
   return new Response(response, {
     headers: {
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': frontendUrl
     }
   });
 
